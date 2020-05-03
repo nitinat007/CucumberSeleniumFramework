@@ -9,6 +9,9 @@ import org.junit.runner.RunWith;
  **/
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"})
+@CucumberOptions(plugin = {"pretty"}
+        //to run only listed feature
+        //,features = "src/test/resources/com.test/features/wikiSearch.feature"
+)
 public class RunTest {
 }

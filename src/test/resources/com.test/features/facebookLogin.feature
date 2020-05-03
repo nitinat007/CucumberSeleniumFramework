@@ -1,9 +1,8 @@
 Feature: Facebook Login Tests
-#This is how background can be used to eliminate duplicate steps
 
   Background:
   User navigates to Facebook
-  Given I am on Facebook login page
+    Given I am on Facebook login page
 
 #Scenario with AND
   Scenario:
@@ -17,3 +16,13 @@ Feature: Facebook Login Tests
     And I enter password as "JERRY1"
     Then Login should fail
     But Relogin option should be available
+
+#Example of Scenario Outline
+ Scenario Outline:
+    When I enter username as "<userName>"
+    And I enter password as "<password>"
+    Then Login should fail
+    Examples:
+   | userName | password |
+   | Tom123   | Jerry123 |
+   | Tom1234  | Jerry1234|

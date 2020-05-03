@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 /**
  * Author: nitinkumar
  * Created Date: 02/05/20
@@ -48,14 +50,21 @@ public class StepDefinitionsFacebook {
         driver.close();
     }
 
-    @Then("^Relogin option should be available$")
-    public void checkRelogin() {
-        if (driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login.php?login_attempt=1&lwv=110")) {
-            System.out.println("Test2 Pass");
-        } else {
-            System.out.println("Test2 Failed");
-        }
-        driver.close();
+    @When("^I enter username as:$")
+    public void iEnterUsernameAs() {
+
+    }
+
+    @When("^I enter username & password as follows:$")
+    public void iEnterUsernamePasswordAsFollows(List<UserDetails> users) {
+        UserDetails userToBeSignedUp = users.get(0);
+        driver.findElement(By.id("email")).sendKeys(userToBeSignedUp.username);
+        driver.findElement(By.id("pass")).sendKeys(userToBeSignedUp.password);
+        driver.findElement(By.id("u_0_b")).click(); //id might change
+    }
+
+    private class UserDetails {
+        public String username;
+        public String password;
     }
 }

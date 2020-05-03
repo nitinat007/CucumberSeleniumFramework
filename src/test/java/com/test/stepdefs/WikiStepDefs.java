@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Author: nitinkumar
  * Created Date: 03/05/20
- * Info:
+ * Info: glue code for wiki search feature
  **/
 
 public class WikiStepDefs {
@@ -54,8 +54,15 @@ public class WikiStepDefs {
         driver.close();
     }
 
+    // Example of Scenario Hook. Similarly we have @Before
     @After
     public void postScenarioStep() {
-        //   driver.close();
+        System.out.println(" Post Scenario hook invoked..\n");
+    }
+
+    // Example of Tagged Hook. Similarly we have @Before("tagName")
+    @After("@DataDrivenTag1")
+    public void postTaggedHook(){
+        System.out.println(" After Tag hook invoked..\n");
     }
 }

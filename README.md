@@ -19,6 +19,9 @@ Background keyword is used to group multiple given statements into a single grou
 
 Steps definition file stores the mapping between each step of the scenario defined in the feature file with a code of function to be executed.
 
+Scenario Hooks allow us to hook some piece of code before and after running any scenario in our framework. The hooks are applicable to all scenarios across all the feature files.
+
+
 Advantages of Cucumber Over Other Tools
 * Cucumber supports different languages like Java.net and Ruby.
 * It acts as a bridge between the business and technical language. We can accomplish this by creating a test case in plain English text.

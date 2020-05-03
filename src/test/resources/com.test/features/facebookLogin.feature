@@ -1,3 +1,4 @@
+@FacebookLoginFeatureTag1
 Feature: Facebook Login Tests
 
   Background:
@@ -10,19 +11,22 @@ Feature: Facebook Login Tests
     And I enter password as "JERRY1"
     Then Login should fail
 
-#Scenario with BUT
-  Scenario:
-    When I enter username as "TOM1"
-    And I enter password as "JERRY1"
-    Then Login should fail
-    But Relogin option should be available
 
-#Example of Scenario Outline
- Scenario Outline:
+#Scenario showing Cucumber DataTables
+  @ScenarioTagWithDataTable
+  Scenario:
+    When I enter username & password as follows:
+      | username  | password   |
+      | TOM1 | Jerry1 |
+    Then Login should fail
+
+#Example of Scenario Outline and Scenario tag
+  @ScenarioTag1, @DataDrivenTag1
+  Scenario Outline:
     When I enter username as "<userName>"
     And I enter password as "<password>"
     Then Login should fail
     Examples:
-   | userName | password |
-   | Tom123   | Jerry123 |
-   | Tom1234  | Jerry1234|
+      | userName | password  |
+      | Tom123   | Jerry123  |
+      | Tom1234  | Jerry1234 |

@@ -1,5 +1,4 @@
 Feature: Facebook Login Tests
-#This is how background can be used to eliminate duplicate steps
 
   Background:
   User navigates to Facebook
@@ -18,7 +17,7 @@ Feature: Facebook Login Tests
     Then Login should fail
     But Relogin option should be available
 
-    #Example of Scenario Outline
+#Example of Scenario Outline
  Scenario Outline:
     When I enter username as "<userName>"
     And I enter password as "<password>"
